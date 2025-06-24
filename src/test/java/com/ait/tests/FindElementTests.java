@@ -61,4 +61,43 @@ public class FindElementTests {
         WebElement text2 = driver.findElement(By.partialLinkText("work"));
         System.out.println(text2.getText());
     }
+
+    @Test
+    public void findElementByCssSelector() {
+        //tagName=h1 -> css=h1
+        //WebElement title = driver.findElement(By.tagName("h1"));
+        WebElement title = driver.findElement(By.cssSelector("h1"));
+        System.out.println(title.getText());
+
+        //id=city -> css= #city
+        //driver.findElement(By.id("city"));
+        driver.findElement(By.cssSelector("#city"));
+
+        //className=navigation-link  -> css=.navigation-link
+        //   WebElement search = driver.findElement(By.className("navigation-link"));
+        WebElement search = driver.findElement(By.cssSelector(".navigation-link"));
+        System.out.println(search.getText());
+
+        //[key='value']
+        WebElement searchLink = driver.findElement(By.cssSelector("[href='/search']"));
+        System.out.println(searchLink.getText());
+
+        // contains -> *
+        driver.findElement(By.cssSelector("[class*='offers']"));
+        //start -> ^
+        driver.findElement(By.cssSelector("[class^='special']"));
+        //end on -> $
+        driver.findElement(By.cssSelector("[class$='container']"));
+
+        //composite cssSelector
+        driver.findElement(By.cssSelector(".logo>img[alt='logo']"));
+
+        driver.findElement(By.cssSelector(".search-container>.subtitle"));
+
+        driver.findElement(By.cssSelector(".input-container #dates"));
+
+        // <tag> or <class> or <id> or <pair>:nth-child(n)
+        WebElement login = driver.findElement(By.cssSelector(".navigation-link:nth-child(6)"));
+        System.out.println(login.getText());
+    }
 }
