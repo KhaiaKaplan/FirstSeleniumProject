@@ -1,4 +1,4 @@
-package HomeWorkProjectTests;
+package com.HomeWorkProject.models;
 
 public class User {
 
