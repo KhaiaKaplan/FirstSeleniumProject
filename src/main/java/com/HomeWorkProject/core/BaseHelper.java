@@ -31,17 +31,6 @@ public class BaseHelper {
         return driver.findElements(locator).size()>0;
     }
 
-    public boolean isAlertPresent() {
-        try {
-            new WebDriverWait(driver, Duration.ofSeconds(10))
-                    .until(ExpectedConditions.alertIsPresent());
-            return true;
-        } catch (TimeoutException e) {
-            return false;
-        }
-    }
-
-
     public void pause(int millis) {
         try {
             Thread.sleep(millis);
