@@ -1,12 +1,12 @@
 package com.HomeWorkProject.core;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class BaseHelper {
@@ -31,11 +31,15 @@ public class BaseHelper {
         return driver.findElements(locator).size()>0;
     }
 
-    public void pause(int millis) {
+    public String takeScreenShot() {
+        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File screenshot = new File("screenshot/screen-" + System.currentTimeMillis() + ".png");
+
         try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
+            Files.copy(tmp,screenshot);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return screenshot.getAbsolutePath();
     }
 }
