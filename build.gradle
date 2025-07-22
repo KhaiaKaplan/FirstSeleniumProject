@@ -18,11 +18,37 @@ test {
     useTestNG()
 }
 
-task regression(type:Test) {
+//task qa(type:Test) {
+//    useTestNG() {
+//        suites 'src/test/resources/regression.xml'
+//    }
+//    if (project.hasProperty('browser')) {
+//        systemProperty 'browser',"${browser}"
+//    }
+//}
+
+
+task qa2(type:Test) {
     useTestNG() {
-        suites 'src/test/resources/regression.xml'
-    }
-    if (project.hasProperty('browser')) {
-        systemProperty 'browser',"${browser}"
+        suites 'src/test/resources/negative.xml'
+        if (project.hasProperty('groups')) {
+            options.groups = project.getProperty('groups')
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
     }
 }
+
+def registerTask(String taskName, String suitePath) {
+    tasks.register(taskName,Test) {
+        useTestNG() {
+            suites suitePath
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser',"${browser}"
+        }
+    }
+}
+
+registerTask('regression','src/test/resources/regression.xml')
