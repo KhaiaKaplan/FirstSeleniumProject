@@ -48,12 +48,12 @@ def registerTask(String taskName, String suitePath) {
         if (project.hasProperty('browser')) {
             systemProperty 'browser', "${browser}"
         }
-        reports {
-            junitXml.enabled = true
-            html.enabled = true
-        }
+//        reports {
+//            junitXml.enabled = true
+//            html.enabled = true
+//        }
     }
 }
 
 
-registerTask('regression','src/test/resources/regression.xml')
+registerTask('regression','src/test/HomeWorkProject/resources/regression.xml')
