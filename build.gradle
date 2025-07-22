@@ -18,7 +18,7 @@ test {
     useTestNG()
 }
 
-task qa(type:Test) {
+task regression(type:Test) {
     useTestNG() {
         suites 'src/test/resources/regression.xml'
     }
