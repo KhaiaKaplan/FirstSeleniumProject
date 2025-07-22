@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HomeWorkProjectTests.tests.AddItemToCartTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-10T14:20:58.902Z" hostname="DESKTOP-VKSH8H0" time="1.606">
+  <properties/>
+  <testcase name="AddItemToCart" classname="HomeWorkProjectTests.tests.AddItemToCartTest" time="1.606"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[???. 10, 2025 5:20:53 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (137.0.7151.70) detected in PATH at C:\Tools\chromedriver.exe might not be compatible with the detected chrome version (138.0.7204.51); currently, chromedriver 138.0.7204.94 is recommended for chrome 138.*, so it is advised to delete the driver in PATH and retry
+???. 10, 2025 5:20:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 138, returning the closest version; found: 137; Please update to a Selenium version that supports CDP version 138
+]]></system-err>
+</testsuite>
